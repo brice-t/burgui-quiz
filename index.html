@@ -19,6 +19,28 @@ html, body {
 }
 
 
+.burgui-page:target {
+  animation: fadeIn 0.6s ease-in-out;
+  -webkit-animation: fadeIn 0.6s ease-in-out;
+  -moz-animation: fadeIn 0.6s ease-in-out;
+  -ms-transform: fadeIn 0.6s ease-in-out;
+  -o-transform: fadeIn 0.6s ease-in-out;
+}
+.burgui-page#startup-page {
+  display: block;
+  animation: fadeIn 0.6s ease-in-out;
+  -webkit-animation: fadeIn 0.6s ease-in-out;
+  -moz-animation: fadeIn 0.6s ease-in-out;
+  -ms-transform: fadeIn 0.6s ease-in-out;
+  -o-transform: fadeIn 0.6s ease-in-out;
+}
+.burgui-page:not(:target) {
+  display: none;
+}
+.burgui-page:target ~ #startup-page {
+  display: none;
+}
+
 
 .burgui-page {
     background-color: #000;
@@ -49,12 +71,51 @@ html, body {
 .txtyellow {
     color: yellow;
 }
-
-
-
 </style>
-<script src=""></script>
+
+<script>
+(function() {
+    document.addEventListener("keydown", checkKey);
+
+    let pagesOrder = [
+            'page-startup',
+            'page-score'
+            ];
+    var currentPageIndex = 0;
+
+    function checkKey(e) {
+        e = e || window.event;
+
+        if (e.keyCode == '38') {
+            // up arrow
+        }
+        else if (e.keyCode == '40') {
+            // down arrow
+        }
+        else if (e.keyCode == '37') {
+                // left arrow
+                var nextPageIndex = Math.max(currentPageIndex-1, 0);
+                currentPage = nextPageIndex;
+                window.location.hash = pagesOrder[currentPage];
+        }
+        else if (e.keyCode == '39') {
+                // right arrow
+                var nextPageIndex = Math.min(currentPageIndex+1, pagesOrder.length - 1);
+                currentPage = nextPageIndex;
+                window.location.hash = pagesOrder[currentPage];
+        }
+    }
+})();
+</script>
+
+
+
 <body>
+
+<div class="burgui-page" id="page-score">
+    score
+</div>
+
 
 <div class="burgui-page" id="page-startup">
     <div class="font-bgq txtblue">BURGUI</div>
