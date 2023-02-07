@@ -71,6 +71,31 @@ html, body {
 .txtyellow {
     color: yellow;
 }
+
+#beer {
+    position: absolute;
+    top: 70px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+#beer img {
+    height: 300px;
+}
+
+.fillable-img {
+    position: relative;
+    width: fit-content
+}
+
+.fillable-img .fill {
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    clip-path: polygon(0 100%, 100% 100%, 100% 100%, 0 100%);
+}
+
 </style>
 
 <script>
@@ -110,6 +135,13 @@ html, body {
 
 
 
+
+
+
+
+</style>
+<script src="vendor/anime.min.js"></script>
+<script src="main.js"></script>
 <body>
 
 <div class="burgui-page" id="page-score">
@@ -118,9 +150,13 @@ html, body {
 
 
 <div class="burgui-page" id="page-startup">
+    <div class="fillable-img" id="beer">
+        <img src="assets/img/beer_grayscale.png" alt="BURGUI">
+        <img class="fill" src="assets/img/beer.png" alt="BURGUI">
+    </div>
     <div class="font-bgq txtblue">BURGUI</div>
     <div class="font-bgq"><span class="txtred">Q</span><span class="txtyellow">U</span></span><span class="txtred">I</span><span class="txtyellow">Z</span></div>
 </div>
 
 </body>
-</html> 
+</html>
