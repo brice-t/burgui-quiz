@@ -6,7 +6,7 @@ onload = async () => {
       percentage = 0;
     }
 
-    fillImg("beer", percentage);
+    fillImg("beer-mayo", percentage);
 
     await sleep(2000);
   }

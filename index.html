@@ -53,9 +53,34 @@ html, body {
     font-size: min(14vw, 35vh);
     display: flex;
     flex-direction: column;
-    justify-content: center;
 }
 
+#page-score-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+}
+
+.score-wrapper {
+    display: flex;
+    flex-direction: row;
+    height: 50%;
+    justify-content: space-evenly;
+}
+
+.score-wrapper > * {
+    flex: 1;
+}
+
+.score-img {
+    text-align: center;
+}
+
+.score-number {
+    font-size: min(14vw, 35vh);
+    text-align: center;
+}
 
 
 .font-bgq {
@@ -65,49 +90,49 @@ html, body {
 .txtblue {
     color: blue;
 }
-.txtred {
+.txtketchup {
     color: red;
 }
-.txtyellow {
+.txtmayo {
     color: yellow;
 }
 
-#beer {
-    position: absolute;
-    top: 70px;
-    left: 50%;
-    transform: translateX(-50%);
-}
-
-#beer img {
-    height: 300px;
-}
-
-.fillable-img {
+.beer {
     position: relative;
-    width: fit-content
 }
 
-.fillable-img .fill {
+.beer img {
+    max-height: 100%;
+    max-width: 100%;
+}
+
+.beer .fill {
     position: absolute;
     z-index: 1;
     top: 0;
     left: 0;
     clip-path: polygon(0 100%, 100% 100%, 100% 100%, 0 100%);
+    width: 100%;
+    height: 100%;
 }
 
 </style>
 
 <script>
+let pagesOrder = [
+        'page-startup',
+        'page-score'
+        ];
+var currentPageIndex = 0,
+        currentScore = { 'ketchup' : 0 , 'mayo' : 0};
+
+function currentPageIs(pageId) {
+    return (pagesOrder[currentPageIndex] === pageId);
+}
+
+
 (function() {
     document.addEventListener("keydown", checkKey);
-
-    let pagesOrder = [
-            'page-startup',
-            'page-score'
-            ];
-    var currentPageIndex = 0;
-
     function checkKey(e) {
         e = e || window.event;
 
@@ -145,17 +170,36 @@ html, body {
 <body>
 
 <div class="burgui-page" id="page-score">
-    score
+    <div id="page-score-content">
+        <div id="score-wrapper-ketchup" class="score-wrapper">
+            <div id="score-img-ketchup" class="score-img">
+                <span class="beer" id="beer-ketchup">
+                    <img src="assets/img/beer_grayscale.png" alt="BURGUI">
+                    <img class="fill" src="assets/img/beer.png" alt="BURGUI">
+                </span>
+            </div>
+            <div id="score-number-ketchup" class="score-number font-bgq txtketchup">
+                00
+            </div>
+        </div>
+        <div id="score-wrapper-mayo" class="score-wrapper">
+            <div id="score-img-mayo" class="score-img">
+                <span class="beer" id="beer-mayo">
+                    <img src="assets/img/beer_grayscale.png" alt="BURGUI">
+                    <img class="fill" src="assets/img/beer.png" alt="BURGUI">
+                </span>
+            </div>
+            <div id="score-number-mayo" class="score-number font-bgq txtmayo">
+                00
+            </div>
+        </div>
+    </div>
 </div>
 
 
 <div class="burgui-page" id="page-startup">
-    <div class="fillable-img" id="beer">
-        <img src="assets/img/beer_grayscale.png" alt="BURGUI">
-        <img class="fill" src="assets/img/beer.png" alt="BURGUI">
-    </div>
     <div class="font-bgq txtblue">BURGUI</div>
-    <div class="font-bgq"><span class="txtred">Q</span><span class="txtyellow">U</span></span><span class="txtred">I</span><span class="txtyellow">Z</span></div>
+    <div class="font-bgq"><span class="txtketchup">Q</span><span class="txtmayo">U</span></span><span class="txtketchup">I</span><span class="txtmayo">Z</span></div>
 </div>
 
 </body>
