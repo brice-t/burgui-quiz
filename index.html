@@ -1,258 +1,49 @@
  <!DOCTYPE html>
 <html lang="fr">
-<meta charset="UTF-8">
-<title>BurGui Quiz</title>
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<link rel="stylesheet" href="">
-<style>
-@font-face {
-  font-family: "Horseshoes and Lemonade";
-  src: local("Horseshoes and Lemonade"),
-    url("assets/fonts/horseshoeslemonade.otf") format("opentype") tech(color-COLRv1);
-}
+<head>
+    <meta charset="UTF-8">
+    <title>BurGui Quiz</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
 
-html, body {
-    height: 100%;
-    width: 100%;
-    padding: 0;
-    margin: 0;
-}
+    <link rel="stylesheet" href="burgui.css">
+    <script src="vendor/anime.min.js"></script>
+    <script src="main.js"></script>
+</head>
 
 
-.burgui-page:target {
-  animation: fadeIn 0.6s ease-in-out;
-  -webkit-animation: fadeIn 0.6s ease-in-out;
-  -moz-animation: fadeIn 0.6s ease-in-out;
-  -ms-transform: fadeIn 0.6s ease-in-out;
-  -o-transform: fadeIn 0.6s ease-in-out;
-}
-.burgui-page#page-startup {
-  display: block;
-  animation: fadeIn 0.6s ease-in-out;
-  -webkit-animation: fadeIn 0.6s ease-in-out;
-  -moz-animation: fadeIn 0.6s ease-in-out;
-  -ms-transform: fadeIn 0.6s ease-in-out;
-  -o-transform: fadeIn 0.6s ease-in-out;
-}
-.burgui-page:not(:target) {
-  display: none;
-}
-.burgui-page:target ~ #page-startup {
-  display: none;
-}
-
-
-.burgui-page {
-    background-color: #000;
-    height: 100%;
-    width: 100%;
-}
-
-#page-startup {
-    text-align: center;
-    font-size: min(14vw, 35vh);
-    display: flex;
-    flex-direction: column;
-}
-
-#page-score-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    height: 100%;
-}
-
-.score-wrapper {
-    display: flex;
-    flex-direction: row;
-    height: 50%;
-    justify-content: space-evenly;
-}
-
-.score-wrapper > * {
-    flex: 1;
-}
-
-.score-img {
-    text-align: center;
-}
-
-.score-number {
-    font-size: min(14vw, 35vh);
-    text-align: center;
-}
-
-
-.font-bgq {
-    font-family: "Horseshoes and Lemonade";
-}
-
-.txtblue {
-    color: blue;
-}
-.txtketchup {
-    color: red;
-}
-.txtmayo {
-    color: yellow;
-}
-
-.beer {
-    position: relative;
-}
-
-.beer img {
-    max-height: 100%;
-    max-width: 100%;
-}
-
-.beer .fill {
-    position: absolute;
-    z-index: 1;
-    top: 0;
-    left: 0;
-    clip-path: polygon(0 100%, 100% 100%, 100% 100%, 0 100%);
-    max-width: 100%;
-    max-height: 100%;
-}
-
-</style>
-
-<script>
-const maxScore = 25;
-
-let pagesOrder = [
-        'page-startup',
-        'page-score'
-        ];
-var currentPageIndex = 0,
-        currentScore = { 'ketchup' : 0 , 'mayo' : 0};
-
-function currentPageIs(pageId) {
-    return (pagesOrder[currentPageIndex] === pageId);
-}
-
-
-
-function incrScore(incrVal, team) {
-        var newScore = currentScore[team] + incrVal;
-        newScore = Math.max(0, newScore);
-        newScore = Math.min(newScore, maxScore);
-
-        currentScore[team] = newScore;
-
-        updateScoreMarkup(team);
-}
-
-function updateScoreMarkup(team) {
-        let scoreNumberNode = document.getElementById('score-number-' + team);
-        scoreNumberNode.innerHTML = currentScore[team].toLocaleString('fr-FR', {
-                minimumIntegerDigits: 2,
-                useGrouping: false
-            });
-}
-
-
-(function() {
-
-    // init currentPageIndex according to hash
-    if(window.location.hash) {
-       currentPageIndex = Math.max(0, pagesOrder.indexOf(window.location.hash.replace('#', '')));
-    }
-
-    document.addEventListener("keydown", checkKey);
-    function checkKey(e) {
-        e = e || window.event;
-
-        if (e.keyCode == '38') {
-            // up arrow
-        }
-        else if (e.keyCode == '40') {
-            // down arrow
-        }
-        else if (e.keyCode == '37') {
-                // left arrow
-                var nextPageIndex = Math.max(currentPageIndex-1, 0);
-                currentPageIndex = nextPageIndex;
-                window.location.hash = pagesOrder[currentPageIndex];
-        }
-        else if (e.keyCode == '39') {
-                // right arrow
-                var nextPageIndex = Math.min(currentPageIndex+1, pagesOrder.length - 1);
-                currentPageIndex = nextPageIndex;
-                window.location.hash = pagesOrder[currentPageIndex];
-        }
-        else if (e.keyCode == '65') {
-                // letter A
-                if(currentPageIs('page-score')) {
-                        incrScore(-1, 'ketchup');
-                }
-        }
-        else if (e.keyCode == '69') {
-                // letter E
-                if(currentPageIs('page-score')) {
-                        incrScore(1, 'ketchup');
-                }
-        }
-        else if (e.keyCode == '87') {
-                // letter W
-                if(currentPageIs('page-score')) {
-                        incrScore(-1, 'mayo');
-                }
-        }
-        else if (e.keyCode == '67') {
-                // letter W
-                if(currentPageIs('page-score')) {
-                        incrScore(1, 'mayo');
-                }
-        }
-    }
-})();
-</script>
-
-
-
-
-
-
-
-</style>
-<script src="vendor/anime.min.js"></script>
-<script src="main.js"></script>
 <body>
-
-<div class="burgui-page" id="page-score">
-    <div id="page-score-content">
-        <div id="score-wrapper-ketchup" class="score-wrapper">
-            <div id="score-img-ketchup" class="score-img">
-                <span class="beer" id="beer-ketchup">
-                    <img src="assets/img/beer_grayscale.png" alt="BURGUI">
-                    <img class="fill" src="assets/img/beer.png" alt="BURGUI">
-                </span>
+    <div class="burgui-page" id="page-score">
+        <div id="page-score-content">
+            <div id="score-wrapper-ketchup" class="score-wrapper">
+                <div id="score-img-ketchup" class="score-img">
+                    <span class="beer" id="beer-ketchup">
+                        <img src="assets/img/beer_grayscale.png" alt="BURGUI">
+                        <img class="fill" src="assets/img/beer.png" alt="BURGUI">
+                    </span>
+                </div>
+                <div id="score-number-ketchup" class="score-number font-bgq txtketchup">
+                    00
+                </div>
             </div>
-            <div id="score-number-ketchup" class="score-number font-bgq txtketchup">
-                00
-            </div>
-        </div>
-        <div id="score-wrapper-mayo" class="score-wrapper">
-            <div id="score-img-mayo" class="score-img">
-                <span class="beer" id="beer-mayo">
-                    <img src="assets/img/beer_grayscale.png" alt="BURGUI">
-                    <img class="fill" src="assets/img/beer.png" alt="BURGUI">
-                </span>
-            </div>
-            <div id="score-number-mayo" class="score-number font-bgq txtmayo">
-                00
+            <div id="score-wrapper-mayo" class="score-wrapper">
+                <div id="score-img-mayo" class="score-img">
+                    <span class="beer" id="beer-mayo">
+                        <img src="assets/img/beer_grayscale.png" alt="BURGUI">
+                        <img class="fill" src="assets/img/beer.png" alt="BURGUI">
+                    </span>
+                </div>
+                <div id="score-number-mayo" class="score-number font-bgq txtmayo">
+                    00
+                </div>
             </div>
         </div>
     </div>
-</div>
 
 
-<div class="burgui-page" id="page-startup">
-    <div class="font-bgq txtblue">BURGUI</div>
-    <div class="font-bgq"><span class="txtketchup">Q</span><span class="txtmayo">U</span></span><span class="txtketchup">I</span><span class="txtmayo">Z</span></div>
-</div>
+    <div class="burgui-page" id="page-startup">
+        <div class="font-bgq txtblue">BURGUI</div>
+        <div class="font-bgq"><span class="txtketchup">Q</span><span class="txtmayo">U</span></span><span class="txtketchup">I</span><span class="txtmayo">Z</span></div>
+    </div>
 
 </body>
 </html>
