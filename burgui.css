@@ -1,16 +1,149 @@
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol,
+ul {
+  list-style: none;
+}
+blockquote,
+q {
+  quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
 @font-face {
   font-family: "Horseshoes and Lemonade";
   src: local("Horseshoes and Lemonade"),
-    url("assets/fonts/horseshoeslemonade.otf") format("opentype") tech(color-COLRv1);
+    url("assets/fonts/horseshoeslemonade.otf") format("opentype")
+      tech(color-COLRv1);
 }
 
-html, body {
-    height: 100%;
-    width: 100%;
-    padding: 0;
-    margin: 0;
+html,
+body,
+.burgui-page {
+  height: 100vh;
+  width: 100vw;
+  padding: 0;
+  margin: 0;
+  background-color: #000;
 }
-
 
 .burgui-page:not(:target) {
   display: none;
@@ -19,78 +152,71 @@ html, body {
   display: none;
 }
 
-
-.burgui-page {
-    background-color: #000;
-    height: 100%;
-    width: 100%;
-}
-
 #page-startup {
-    text-align: center;
-    font-size: min(14vw, 35vh);
-    display: flex;
-    flex-direction: column;
+  text-align: center;
+  font-size: min(14vw, 35vh);
+  display: flex;
+  flex-direction: column;
 }
 
 #page-score-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  padding: 0 10vw;
 }
 
 .score-wrapper {
-    display: flex;
-    flex-direction: row;
-    height: 50%;
-    justify-content: space-evenly;
+  display: flex;
+  height: 50%;
+  width: 100%;
 }
 
 .score-wrapper > * {
-    flex: 1;
+  flex: 1;
 }
 
 .score-img {
-    text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .score-number {
-    font-size: min(14vw, 35vh);
-    text-align: center;
+  font-size: min(14vw, 35vh);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-
 .font-bgq {
-    font-family: "Horseshoes and Lemonade";
+  font-family: "Horseshoes and Lemonade";
 }
 
 .txtblue {
-    color: blue;
+  color: blue;
 }
 .txtketchup {
-    color: red;
+  color: red;
 }
 .txtmayo {
-    color: yellow;
+  color: yellow;
 }
 
 .beer {
-    position: relative;
+  position: relative;
+  height: 80%;
 }
 
 .beer img {
-    max-height: 100%;
-    max-width: 100%;
-    position: relative;
-    left: 25%;
+  height: 100%;
 }
 
 .beer .fill {
-    z-index: 1;
-    top: 0;
-    left: 0;
-    clip-path: polygon(0 100%, 100% 100%, 100% 100%, 0 100%);
-    max-width: 100%;
-    max-height: 100%;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  position: absolute;
+  clip-path: polygon(0 100%, 100% 100%, 100% 100%, 0 100%);
 }
