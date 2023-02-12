@@ -62,12 +62,18 @@ body > div > img {
   display: none;
 }
 
-#page-startup > * {
+#page-startup > *, #page-pub > * {
   font-size: min(14vw, 35vh);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+#pub-text-burgui, #pub-text-quiz {
+  font-size: min(10vw, 23vh);
+}
+#pub-text-pub {
+    margin-top: 5vh;
 }
 
 #title-img {
