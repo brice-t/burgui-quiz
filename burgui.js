@@ -1,4 +1,5 @@
-import { ScorePage, StartupPage } from "./lib/Pages.js";
+import { StartupPage } from "./lib/StartupPage.js";
+import { ScorePage } from "./lib/ScorePage.js";
 import { keyCodes } from "./lib/helpers.js";
 
 const pages = [new StartupPage(), new ScorePage(25)];
@@ -17,13 +18,6 @@ const changePage = (newPage) => {
 };
 
 (function () {
-  window.addEventListener("resize", () => {
-    selectedPage.onResize();
-  });
-  window.addEventListener("hashchange", () => {
-    selectedPage.onHashChange();
-  });
-
   document.addEventListener("keydown", (e) => {
     e = e || window.event;
 
