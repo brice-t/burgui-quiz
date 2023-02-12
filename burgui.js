@@ -13,11 +13,13 @@ let selectedPage =
   pages.find((page) => page.id === window.location.hash.slice(1)) || pages[0];
 
 const changePage = (newPage) => {
+  selectedPage.onDeselected();
   selectedPage = newPage;
+  selectedPage.onSelected();
   window.location.hash = selectedPage.id;
 };
 
-(function () {
+onload = () => {
   document.addEventListener("keydown", (e) => {
     e = e || window.event;
 
@@ -29,4 +31,9 @@ const changePage = (newPage) => {
 
     selectedPage.onKeyDown(e);
   });
-})();
+
+  const body = document.getElementsByTagName("body")[0];
+  body.classList.remove("hidden");
+
+  selectedPage.onSelected();
+};

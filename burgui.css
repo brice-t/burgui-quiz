@@ -6,17 +6,43 @@
 }
 
 html,
-body {
+body,
+body > div {
   height: 100vh;
   width: 100vw;
   padding: 0;
   margin: 0;
+  position: relative;
+  overflow: hidden;
+}
+
+html {
   background-color: #000;
 }
 
-body {
-  background: url("assets/img/tv-background.png") no-repeat center center fixed;
-  background-size: 100% 100%;
+.hidden {
+  display: none;
+}
+
+body > div > img {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  z-index: 1;
+}
+
+#guigui-bottom-left {
+  position: absolute;
+  bottom: -60px;
+  left: 200px;
+  height: 200px;
+}
+
+#guigui-bottom-right {
+  position: absolute;
+  bottom: -60px;
+  right: 200px;
+  height: 200px;
 }
 
 .burgui-page {
@@ -44,7 +70,7 @@ body {
   justify-content: center;
 }
 
-#page-startup img {
+#title-img {
   margin-top: 40px;
   position: relative;
   left: -15px;
