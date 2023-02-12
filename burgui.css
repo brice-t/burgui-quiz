@@ -1,133 +1,3 @@
-/* http://meyerweb.com/eric/tools/css/reset/
-   v2.0 | 20110126
-   License: none (public domain)
-*/
-
-html,
-body,
-div,
-span,
-applet,
-object,
-iframe,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p,
-blockquote,
-pre,
-a,
-abbr,
-acronym,
-address,
-big,
-cite,
-code,
-del,
-dfn,
-em,
-img,
-ins,
-kbd,
-q,
-s,
-samp,
-small,
-strike,
-strong,
-sub,
-sup,
-tt,
-var,
-b,
-u,
-i,
-center,
-dl,
-dt,
-dd,
-ol,
-ul,
-li,
-fieldset,
-form,
-label,
-legend,
-table,
-caption,
-tbody,
-tfoot,
-thead,
-tr,
-th,
-td,
-article,
-aside,
-canvas,
-details,
-embed,
-figure,
-figcaption,
-footer,
-header,
-hgroup,
-menu,
-nav,
-output,
-ruby,
-section,
-summary,
-time,
-mark,
-audio,
-video {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  font-size: 100%;
-  font: inherit;
-  vertical-align: baseline;
-}
-/* HTML5 display-role reset for older browsers */
-article,
-aside,
-details,
-figcaption,
-figure,
-footer,
-header,
-hgroup,
-menu,
-nav,
-section {
-  display: block;
-}
-body {
-  line-height: 1;
-}
-ol,
-ul {
-  list-style: none;
-}
-blockquote,
-q {
-  quotes: none;
-}
-blockquote:before,
-blockquote:after,
-q:before,
-q:after {
-  content: "";
-  content: none;
-}
-table {
-  border-collapse: collapse;
-  border-spacing: 0;
-}
-
 @font-face {
   font-family: "Horseshoes and Lemonade";
   src: local("Horseshoes and Lemonade"),
@@ -153,10 +23,25 @@ body,
 }
 
 #page-startup {
-  text-align: center;
   font-size: min(14vw, 35vh);
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+#page-startup img {
+  margin-top: 80px;
+  position: relative;
+  left: -10px;
+}
+
+#text-burgui {
+  font-size: min(11vw, 30vh);
+}
+
+#text-burgui > * {
+  margin: 0 10px;
 }
 
 #page-score-content {
@@ -192,16 +77,60 @@ body,
 
 .font-bgq {
   font-family: "Horseshoes and Lemonade";
+  display: flex;
+}
+
+.font-bgq > * {
+  flex: 1;
+  position: relative;
+  z-index: 0;
+  display: inline-block;
+}
+
+.font-bgq > *::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: 20%;
+  left: 16%;
+  right: 15%;
+  bottom: 10%;
 }
 
 .txtblue {
-  color: blue;
+  color: rgb(63, 58, 152);
 }
+
+.font-bgq.txtblue > span::before {
+  background: #9cdffc;
+}
+
+.txtblue::before {
+  background: #9cdffc;
+}
+
 .txtketchup {
-  color: red;
+  color: #c63a23;
 }
+
+.font-bgq.txtketchup > span::before {
+  background: rgba(245, 220, 220);
+}
+
+.txtketchup::before {
+  background: rgba(245, 220, 220);
+}
+
 .txtmayo {
-  color: yellow;
+  color: #ddb70c;
+}
+
+.font-bgq.txtmayo > span::before {
+  background: rgba(250, 250, 220);
+}
+
+.txtmayo::before {
+  background: rgba(250, 250, 220);
 }
 
 .beer {

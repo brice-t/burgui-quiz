@@ -1,7 +1,7 @@
-import { Page, ScorePage } from "./lib/Pages.js";
+import { ScorePage, StartupPage } from "./lib/Pages.js";
 import { keyCodes } from "./lib/helpers.js";
 
-const pages = [new Page("page-startup"), new ScorePage(25)];
+const pages = [new StartupPage(), new ScorePage(25)];
 
 pages.forEach((page, index, pages) => {
   page.nextPage = pages[Math.min(index + 1, pages.length - 1)];

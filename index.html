@@ -1,49 +1,57 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="fr">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>BurGui Quiz</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
 
-    <link rel="stylesheet" href="burgui.css">
+    <link rel="stylesheet" href="reset.css" />
+    <link rel="stylesheet" href="burgui.css" />
     <script src="vendor/anime.min.js"></script>
-</head>
+  </head>
 
-
-<body>
+  <body>
     <div class="burgui-page" id="page-score">
-        <div id="page-score-content">
-            <div id="score-wrapper-ketchup" class="score-wrapper">
-                <div id="score-img-ketchup" class="score-img">
-                    <span class="beer" id="beer-ketchup">
-                        <img src="assets/img/beer_grayscale.png" alt="BURGUI">
-                        <img class="fill" src="assets/img/beer.png" alt="BURGUI">
-                    </span>
-                </div>
-                <div id="score-number-ketchup" class="score-number font-bgq txtketchup">
-                    00
-                </div>
-            </div>
-            <div id="score-wrapper-mayo" class="score-wrapper">
-                <div id="score-img-mayo" class="score-img">
-                    <span class="beer" id="beer-mayo">
-                        <img src="assets/img/beer_grayscale.png" alt="BURGUI">
-                        <img class="fill" src="assets/img/beer.png" alt="BURGUI">
-                    </span>
-                </div>
-                <div id="score-number-mayo" class="score-number font-bgq txtmayo">
-                    00
-                </div>
-            </div>
+      <div id="page-score-content">
+        <div id="score-wrapper-ketchup" class="score-wrapper">
+          <div id="score-img-ketchup" class="score-img">
+            <span class="beer" id="beer-ketchup">
+              <img src="assets/img/beer_grayscale.png" alt="BURGUI" />
+              <img class="fill" src="assets/img/beer.png" alt="BURGUI" />
+            </span>
+          </div>
+          <div class="score-number">
+            <div
+              id="score-number-ketchup"
+              data-text="00"
+              class="font-bgq txtketchup"
+            ></div>
+          </div>
         </div>
+        <div id="score-wrapper-mayo" class="score-wrapper">
+          <div id="score-img-mayo" class="score-img">
+            <span class="beer" id="beer-mayo">
+              <img src="assets/img/beer_grayscale.png" alt="BURGUI" />
+              <img class="fill" src="assets/img/beer.png" alt="BURGUI" />
+            </span>
+          </div>
+          <div class="score-number">
+            <div
+              id="score-number-mayo"
+              data-text="00"
+              class="font-bgq txtmayo"
+            ></div>
+          </div>
+        </div>
+      </div>
     </div>
 
-
     <div class="burgui-page" id="page-startup">
-        <div class="font-bgq txtblue">BURGUI</div>
-        <div class="font-bgq"><span class="txtketchup">Q</span><span class="txtmayo">U</span></span><span class="txtketchup">I</span><span class="txtmayo">Z</span></div>
+      <div id="text-burgui" data-text="BURGUI" class="font-bgq txtblue"></div>
+      <div id="text-quiz" data-text="QUIZ" class="font-bgq"></div>
+      <img src="assets/img/burger-frite-coca.jpg" />
     </div>
 
     <script type="module" src="burgui.js"></script>
-</body>
+  </body>
 </html>
