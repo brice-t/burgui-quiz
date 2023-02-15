@@ -33,16 +33,16 @@ body > div > img {
 
 #guigui-bottom-left {
   position: absolute;
-  bottom: -60px;
-  left: 200px;
-  height: 200px;
+  bottom: -22vh;
+  left: 10vw;
+  height: 30vh;
 }
 
 #guigui-bottom-right {
   position: absolute;
-  bottom: -60px;
-  right: 200px;
-  height: 200px;
+  bottom: -22vh;
+  right: 10vw;
+  height: 30vh;
 }
 
 .burgui-page {
