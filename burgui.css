@@ -33,26 +33,26 @@ body > div > img {
 
 #guigui-bottom-left {
   position: absolute;
-  bottom: -22vh;
+  bottom: -200px;
   left: 10vw;
-  height: 30vh;
+  height: 250px;
 }
 
 #guigui-bottom-right {
   position: absolute;
-  bottom: -22vh;
+  bottom: -200px;
   right: 10vw;
-  height: 30vh;
+  height: 250px;
 }
 
 .burgui-page {
-  height: 100vh;
-  width: 100vw;
+  height: calc(100vh - 20vh);
+  width: calc(100vw - 14vw);
+  padding: 10vh 7vw;
 }
 
 .burgui-page > * {
-  padding: 10vh 7vw;
-  height: calc(100vh - 20vh);
+  height: 100%;
 }
 
 .burgui-page:not(:target) {
@@ -102,7 +102,8 @@ body > div > img {
 
 .score-wrapper {
   display: flex;
-  justify-content: space-between;
+  flex: 1 1 auto;
+  min-height: 0;
 }
 
 .score-wrapper > * {
@@ -120,6 +121,8 @@ body > div > img {
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
+  top: -15px;
 }
 
 .font-bgq {
@@ -139,7 +142,7 @@ body > div > img {
   position: absolute;
   z-index: -1;
   top: 20%;
-  left: 16%;
+  left: 17%;
   right: 15%;
   bottom: 10%;
 }
@@ -182,12 +185,11 @@ body > div > img {
 
 .beer {
   position: relative;
-  height: 65%;
+  height: 75%;
 }
 
 .beer img {
-  max-height: 30vh;
-  max-width: 30vw;
+  height: 100%;
 }
 
 .beer .fill {
