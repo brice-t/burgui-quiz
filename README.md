@@ -1,3 +1,14 @@
+== Comment ça marche ? ==
+
+Il y a 3 écrans, dont le passage de l'un à l'autre se fait avec les flèches &larr; et $rarr; du clavier :
+* startup : une animation
+* scores : 2 équipes. Le score (min : 0 / max : 25) de l'équipe du haut peut être décrémenté / incrémenté avec les touches "a" et "e". Pour l'équipe du bas, les touches sont "w" et "c"
+* pubs : une autre animations. Le répertoire "videos" contient 3 pubs
+
+
+
+== "specs" ==
+
 cette appli ferait le comptage des points pour un burger quizz
 
 genre on appuie sur une touche => ça met un point à une équipe
