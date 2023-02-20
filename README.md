@@ -9,7 +9,7 @@ Il y a 3 écrans, dont le passage de l'un à l'autre se fait avec les flèches &
 
 == "specs" ==
 
-cette appli ferait le comptage des points pour un burger quizz
+cette appli ferait le comptage des points pour un burger quizz
 
 genre on appuie sur une touche => ça met un point à une équipe
 On appuie sur une autre => ça met un point à l'autre
